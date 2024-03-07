@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <title>Monthly Revenue Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #d4c7fd;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #e3ddf7;
+        }
+        tr:hover {
+            background-color: #ebe9f2;
+        }
+        .generate-button {
+            background-color: #45434a;
+            border: none;
+            color: white;
+            padding: 5px 7px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .generate-button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 style="text-align: center;">Monthly Revenue Report</h1>
+    <form action="{{ path('monthly_revenue_csv_download') }}" method="post">
+        <button class="generate-button" type="submit">CSV Report</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Month</th>
+                <th>Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in reportData %}
+            <tr>
+                <td>{{ row.year }}</td>
+                <td>{{ row.month }}</td>
+                <td>{{ row.revenue }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

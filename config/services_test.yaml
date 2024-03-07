@@ -1,0 +1,5 @@
+services:
+    # Define the mock service
+    customer_stats_service_mock:
+        class: App\Service\CustomerStatsService
+        public: true

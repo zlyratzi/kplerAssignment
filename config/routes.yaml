@@ -1,0 +1,18 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+
+app_hello: 
+    path: / 
+    controller: App\Controller\HelloController::hello
+
+generate_excel_report:
+    path: /generate-excel-report
+    controller: App\Controller\ReportController::generateExcelReport
+    methods: ['POST']
+
+monthly_revenue_csv_download:
+    path: /monthly_revenue_csv_download
+    controller: App\Controller\ReportController::downloadMonthlyRevenueCsv
+    methods: ['POST']
